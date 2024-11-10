@@ -1,9 +1,18 @@
-
 Feature: Target Gifts
-  Scenario: Navigate to the page
+  Background:
     Given Navigate to https://www.target.com/
+
+  Scenario: Navigate to the page
+    # like all Scenarios uses Background
 
   Scenario: Search for gifts
-    Given Navigate to https://www.target.com/
     When Search for gift ideas
 
+  Scenario Outline: Verify searched page's headers
+    When Search for <searched item>
+    Then Verify header of the page contains <searched item>
+
+    Examples:
+      | searched item |
+      | iphone        |
+      | gift ideas    |
