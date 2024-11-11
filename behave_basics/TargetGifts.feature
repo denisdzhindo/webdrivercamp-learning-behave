@@ -16,3 +16,11 @@ Feature: Target Gifts
       | searched item |
       | iphone        |
       | gift ideas    |
+
+  Scenario: Gifts - Price validation
+    When Search for gift ideas
+    When Select Her in Who are you shopping for? section
+    When Select Gifts under $15 in Great gifts for any budget section
+    Then Collect all items on the first page into collected_items
+    Then verify all collected results' price is < 15
+      | context.collected.items |
