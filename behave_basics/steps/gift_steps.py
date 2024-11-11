@@ -136,23 +136,18 @@ def collected_result(context, condition):
     operator, value = condition[0], float(condition[1])  # Cast value to float for comparison
 
     for item in context.collected_items:
-        try:
-            price = float(item[1])
+        price = float(item[1])
 
-            # Check for mistakes:
-            if operator == "<" and price >= value:  # Mistake if price is >= value when it should be < value
-                mistakes.append(item)
-            elif operator == ">" and price <= value:  # Mistake if price is <= value when it should be > value
-                mistakes.append(item)
-            elif operator == "==" and price != value:  # Mistake if price is not equal to value
-                mistakes.append(item)
-            elif operator == "<=" and price > value:  # Mistake if price is > value when it should be <= value
-                mistakes.append(item)
-            elif operator == ">=" and price < value:  # Mistake if price is < value when it should be >= value
-                mistakes.append(item)
-
-        except ValueError:
-            mistakes.append(f"Invalid price format in item: {item}")
+        if operator == "<" and price >= value:  # Mistake if price is >= value when it should be < value
+            mistakes.append(item)
+        elif operator == ">" and price <= value:  # Mistake if price is <= value when it should be > value
+            mistakes.append(item)
+        elif operator == "==" and price != value:  # Mistake if price is not equal to value
+            mistakes.append(item)
+        elif operator == "<=" and price > value:  # Mistake if price is > value when it should be <= value
+            mistakes.append(item)
+        elif operator == ">=" and price < value:  # Mistake if price is < value when it should be >= value
+            mistakes.append(item)
 
     if mistakes:
         print(f"Mistakes:")
