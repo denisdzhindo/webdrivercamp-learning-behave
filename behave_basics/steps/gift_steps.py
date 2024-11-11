@@ -166,7 +166,7 @@ def collected_result(context, condition):
 
 
 
-'''
+''' # in progress
 @step('verify all collected results\' price is {condition}')
 def collected_result(context, condition):
     condition = condition.split(" ")
