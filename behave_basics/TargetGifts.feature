@@ -3,7 +3,7 @@ Feature: Target Gifts
     Given Navigate to https://www.target.com/
 
   Scenario: Navigate to the page
-    # like all Scenarios uses Background
+    # like all Scenarios uses Background to open the page
 
   Scenario: Search for gifts
     When Search for gift ideas

@@ -119,7 +119,6 @@ def collected_items(context, context_variable):
                 min_price = float(price[0])
             min_prices.append(min_price)
         #collect min_prices:
-
         for price_element in min_prices:
             price_list.append(price_element)
 
@@ -127,7 +126,6 @@ def collected_items(context, context_variable):
         print("Timeout waiting for elements to be visible.")
 
     context.collected_items = list(zip(title_list, price_list))
-
 
 @step('verify all collected results\' price is {condition}')
 def collected_result(context, condition):
@@ -155,13 +153,6 @@ def collected_result(context, condition):
             print(mistake)
     else:
         print("All prices meet the condition.")
-
-
-
-
-
-
-
 
 
 
